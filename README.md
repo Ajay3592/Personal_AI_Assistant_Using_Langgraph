@@ -1,5 +1,5 @@
 # 🧠 AI Personal Assistant Chatbot
-
+URL : https://ajaypersonalbot.streamlit.app/
 An intelligent, interactive personal assistant chatbot built using [LangGraph](https://www.langgraph.dev/), powered by Google Gemini and Pinecone vector database. This assistant can answer both general and personal questions, fetch live weather and stock data.
 
 ## 🚀 Features
@@ -29,4 +29,5 @@ An intelligent, interactive personal assistant chatbot built using [LangGraph](h
 | Vector Database  | Pinecone                                   |
 | UI               | Streamlit                                 |
 | Tools            | Custom Weather & Stock Price APIs         |
+
 
