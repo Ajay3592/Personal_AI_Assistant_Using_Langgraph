@@ -163,14 +163,14 @@ if user_input:
     with st.spinner("Thinking..."):
         time.sleep(1.5)  # Simulate delay — replace with actual backend call
 
-        # Replace this with your actual chatbot response logic
-        def get_bot_response(query):
-	    	result = app1.invoke(({"input": query}))
-            return result["output"]
+    def get_bot_response(query):
+		result = app1.invoke(({"input": query}))
+		return result["output"]
 
-        response = get_bot_response(user_input)
+    response = get_bot_response(user_input)
 
     st.chat_message("assistant").markdown(response)
     st.session_state.chat_history.append({"role": "assistant", "content": response})
+
 
 
