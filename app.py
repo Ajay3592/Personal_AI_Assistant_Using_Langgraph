@@ -140,7 +140,7 @@ workflow.set_entry_point("agent")
 workflow.add_edge("agent",END)
 
 
-app = workflow.compile()
+app1 = workflow.compile()
 
 # Initialize chat history
 if "chat_history" not in st.session_state:
@@ -165,11 +165,12 @@ if user_input:
 
         # Replace this with your actual chatbot response logic
         def get_bot_response(query):
-	    	result = app.invoke(({"input": query}))
+	    	result = app1.invoke(({"input": query}))
             return result["output"]
 
         response = get_bot_response(user_input)
 
     st.chat_message("assistant").markdown(response)
     st.session_state.chat_history.append({"role": "assistant", "content": response})
+
 
