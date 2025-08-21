@@ -1,8 +1,8 @@
 langchain==0.1.14
 google-generativeai==0.3.2
 streamlit==1.32.0
-langchain_google_genai
-langchain_pinecone
+langchain-google-genai
+langchain-pinecone
 langgraph
-pinecone
+pinecone-client==2.2.4
 requests
