@@ -146,13 +146,13 @@ app1 = workflow.compile()
 if "chat_history" not in st.session_state:
     st.session_state.chat_history = []
 
-# Display chat history
-for chat in st.session_state.chat_history:
-    with st.chat_message(chat["role"]):
-        st.markdown(chat["content"])
+# # Display chat history
+# for chat in st.session_state.chat_history:
+#     with st.chat_message(chat["role"]):
+#         st.markdown(chat["content"])
 
-import streamlit as st
-import time
+# import streamlit as st
+# import time
 
 # Initialize chat history
 if "chat_history" not in st.session_state:
@@ -183,6 +183,7 @@ if user_input:
 
     st.chat_message("assistant").markdown(response)
     st.session_state.chat_history.append({"role": "assistant", "content": response})
+
 
 
 
