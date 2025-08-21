@@ -15,7 +15,7 @@ from langchain.tools import Tool
 from typing import TypedDict
 
 
-st.set_page_config(page_title="Ajay's AI Personal Assistant", page_icon="🤖", layout="centered")
+st.set_page_config(page_title="Ajay's AI Personal Assistant", layout="centered")
 
 # Title and description
 st.title("Ajay's AI Personal Assistant")
@@ -31,18 +31,18 @@ alpha_vantage_api_key = st.secrets["alpha_vantage"]["api_key"]
 pc = Pinecone(api_key=pinecone_api_key)
 index_name = "chatbot-index-gemini"
 
-if index_name not in pc.list_indexes():
-    pc.create_index(
-        name=index_name,
-        # dimension of the vector embeddings produced by gemini-embedding-001
-        dimension=768, #dimension=768-small, 1536-medium, 3072-large
-        metric="cosine",
-        # parameters for the free tier index
-        spec=ServerlessSpec(
-            cloud="aws",
-            region="us-east-1"
-        )
-    )
+# if index_name not in pc.list_indexes():
+#     pc.create_index(
+#         name=index_name,
+#         # dimension of the vector embeddings produced by gemini-embedding-001
+#         dimension=768, #dimension=768-small, 1536-medium, 3072-large
+#         metric="cosine",
+#         # parameters for the free tier index
+#         spec=ServerlessSpec(
+#             cloud="aws",
+#             region="us-east-1"
+#         )
+#     )
 
 # Initialize index client
 index = pc.Index(name=index_name)
@@ -183,6 +183,7 @@ if user_input:
 
     st.chat_message("assistant").markdown(response)
     st.session_state.chat_history.append({"role": "assistant", "content": response})
+
 
 
 
