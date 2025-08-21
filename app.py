@@ -165,10 +165,11 @@ if user_input:
 
         # Replace this with your actual chatbot response logic
         def get_bot_response(query):
-	    result = app.invoke(({"input": query}))
+	    	result = app.invoke(({"input": query}))
             return result["output"]
 
         response = get_bot_response(user_input)
 
     st.chat_message("assistant").markdown(response)
     st.session_state.chat_history.append({"role": "assistant", "content": response})
+
