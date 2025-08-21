@@ -13,13 +13,14 @@ from langchain_pinecone import PineconeVectorStore
 from pinecone import ServerlessSpec
 from langchain.tools import Tool
 from typing import TypedDict
+import requests
 
 
 st.set_page_config(page_title="Ajay's AI Personal Assistant", layout="centered")
 
 # Title and description
 st.title("Ajay's AI Personal Assistant")
-st.markdown("Ask me anything — personal, general, weather, or stock-related!")
+st.markdown("[===================[Ask me anything — personal, general, weather, or stock-related!]===================]")
 
 # Import API keys 
 gemini_api_key = st.secrets["gemini"]["api_key"]
@@ -183,6 +184,7 @@ if user_input:
 
     st.chat_message("assistant").markdown(response)
     st.session_state.chat_history.append({"role": "assistant", "content": response})
+
 
 
 
