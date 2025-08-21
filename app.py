@@ -12,7 +12,7 @@ from pinecone import Pinecone
 from langchain_pinecone import PineconeVectorStore
 from pinecone import ServerlessSpec
 from langchain.tools import Tool
-from langchain.typing import TypedDict
+from typing import TypedDict
 
 
 st.set_page_config(page_title="Ajay's AI Personal Assistant", page_icon="🤖", layout="centered")
@@ -183,5 +183,6 @@ if user_input:
 
     st.chat_message("assistant").markdown(response)
     st.session_state.chat_history.append({"role": "assistant", "content": response})
+
 
 
