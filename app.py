@@ -31,7 +31,7 @@ alpha_vantage_api_key = st.secrets["alpha_vantage"]["api_key"]
 pc = Pinecone(api_key=pinecone_api_key)
 index_name = "chatbot-index-gemini"
 
-if not pc.has_index(index_name):
+if index_name not in pc.list_indexes():
     pc.create_index(
         name=index_name,
         # dimension of the vector embeddings produced by gemini-embedding-001
@@ -183,6 +183,7 @@ if user_input:
 
     st.chat_message("assistant").markdown(response)
     st.session_state.chat_history.append({"role": "assistant", "content": response})
+
 
 
 
