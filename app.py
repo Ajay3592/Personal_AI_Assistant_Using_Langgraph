@@ -30,7 +30,7 @@ alpha_vantage_api_key = st.secrets["alpha_vantage"]["api_key"]
 
 # Initialize Pinecone
 pc = Pinecone(api_key=pinecone_api_key)
-index_name = "chatbot-index-gemini"
+index_name = "chatbot-index-gemini-updated"
 
 # if index_name not in pc.list_indexes():
 #     pc.create_index(
@@ -184,6 +184,7 @@ if user_input:
 
     st.chat_message("assistant").markdown(response)
     st.session_state.chat_history.append({"role": "assistant", "content": response})
+
 
 
 
