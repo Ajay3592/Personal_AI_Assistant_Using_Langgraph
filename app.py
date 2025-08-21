@@ -151,6 +151,18 @@ for chat in st.session_state.chat_history:
     with st.chat_message(chat["role"]):
         st.markdown(chat["content"])
 
+import streamlit as st
+import time
+
+# Initialize chat history
+if "chat_history" not in st.session_state:
+    st.session_state.chat_history = []
+
+# Display chat history
+for chat in st.session_state.chat_history:
+    with st.chat_message(chat["role"]):
+        st.markdown(chat["content"])
+
 # Chat input box
 user_input = st.chat_input("Type your message...")
 
@@ -163,14 +175,11 @@ if user_input:
     with st.spinner("Thinking..."):
         time.sleep(1.5)  # Simulate delay — replace with actual backend call
 
-    def get_bot_response(query):
-		result = app1.invoke(({"input": query}))
-		return result["output"]
+        def get_bot_response(query):
+            result = app1.invoke({"input": query})
+            return result["output"]
 
-    response = get_bot_response(user_input)
+        response = get_bot_response(user_input)
 
     st.chat_message("assistant").markdown(response)
     st.session_state.chat_history.append({"role": "assistant", "content": response})
-
-
-
