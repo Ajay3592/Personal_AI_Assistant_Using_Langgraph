@@ -8,7 +8,7 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain.memory import ConversationBufferMemory
 from langchain.agents import initialize_agent, AgentExecutor
 from langgraph.graph import StateGraph, START, END
-from pinecone import Pinecone
+import pinecone
 from langchain_pinecone import PineconeVectorStore
 from pinecone import ServerlessSpec
 from langchain.tools import Tool
@@ -28,7 +28,7 @@ weather_api_key = st.secrets["weather"]["api_key"]
 alpha_vantage_api_key = st.secrets["alpha_vantage"]["api_key"]
 
 # Initialize Pinecone
-pc = Pinecone(api_key=pinecone_api_key)
+pc = pinecone(api_key=pinecone_api_key)
 index_name = "chatbot-index-gemini"
 
 if not pc.has_index(index_name):
@@ -183,3 +183,4 @@ if user_input:
 
     st.chat_message("assistant").markdown(response)
     st.session_state.chat_history.append({"role": "assistant", "content": response})
+
