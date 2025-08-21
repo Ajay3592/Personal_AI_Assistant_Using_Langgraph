@@ -1,8 +1,17 @@
+# Core LangChain and LangGraph dependencies
 langchain==0.1.14
+langgraph>=0.0.20
+
+# Google Generative AI support
 google-generativeai==0.3.2
-streamlit==1.32.0
-langchain-google-genai
-langchain-pinecone
-langgraph
+langchain-google-genai>=0.0.6
+
+# Pinecone integration (client only, no deprecated plugins)
 pinecone-client==2.2.4
-requests
+langchain-pinecone>=0.0.3
+
+# Web app interface
+streamlit==1.32.0
+
+# HTTP requests
+requests>=2.31.0
